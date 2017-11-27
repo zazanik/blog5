@@ -1,0 +1,3 @@
+AppBundle\Entity\User:
+    user_1:
+      __construct: ['admin@gmail.com', 'admin', '1111', [ROLE_ADMIN]]

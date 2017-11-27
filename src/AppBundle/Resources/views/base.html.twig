@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% block head %}
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+  {% endblock head %}
+
+  {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('dist/styles/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dist/styles/font-awesome.min.css') }}">
+  {% endblock %}
+</head>
+<body>
+{% block header %}
+  <header class="header">
+    <div class="container clearfix">
+      <div class="logo">
+        <a href="{{ path('homepage') }}">
+          <img src="http://www.ovidiuoltean.com/img/logo.png" alt="Ovidiu Oltean">
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="http://www.ovidiuoltean.com">Home</a></li>
+          <li><a href="http://www.ovidiuoltean.com/gallery/portfolio/">Portfolio</a></li>
+          <li><a href="http://www.ovidiuoltean.com/page/contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+{% endblock header %}
+
+{% block main %}{% endblock %}
+
+{% block footer %}
+  <div class="footer">
+    <div class="container">
+      Copyright © 2012 - 2017 <a href="http://www.ovidiuoltean.com">Ovidiu Oltean</a>. All rights reserved.<br><br>
+      <ul>
+        <li><a href="https://www.facebook.com/OlteanOvidiuRetouch"><img
+                src="http://www.ovidiuoltean.com/img/facebook.png" alt="Facebook"></a></li>
+        <li><a href="http://instagram.com/ovidiu_oltean"><img src="http://www.ovidiuoltean.com/img/instagram.png"
+                                                              alt="Instagram"></a></li>
+      </ul>
+    </div>
+  </div>
+{% endblock footer %}
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,51 @@
+{% extends "AppBundle:common:base.html.twig" %}
+
+{% block main %}
+  <div class="content">
+    <div class="container">
+      <div class="content_title" style="margin-bottom: 30px;">{{ post.title }}</div>
+
+      <div class="content">
+        {{ post.content }}
+      </div>
+
+      {#<div class="pictures_container">#}
+        {#<div class="gallery_picture">#}
+          {#<img src="http://www.ovidiuoltean.com/uploads/galleries/big/portfolio-harpers-bazaar-kz--jasmine-sanders-1106.jpg" alt="Harper's Bazaar Kz * Jasmine Sanders">#}
+        {#</div>#}
+        {#<div class="gallery_picture">#}
+          {#<img src="http://www.ovidiuoltean.com/uploads/galleries/big/portfolio-harpers-bazaar-kz--jasmine-sanders-1108.jpg" alt="Harper's Bazaar Kz * Jasmine Sanders">#}
+        {#</div>#}
+        {#<div class="gallery_picture">#}
+          {#<img src="http://www.ovidiuoltean.com/uploads/galleries/big/portfolio-harpers-bazaar-kz--jasmine-sanders-1109.jpg" alt="Harper's Bazaar Kz * Jasmine Sanders">#}
+        {#</div>#}
+        {#<div class="gallery_picture">#}
+          {#<img src="http://www.ovidiuoltean.com/uploads/galleries/big/portfolio-harpers-bazaar-kz--jasmine-sanders-1114.jpg" alt="Harper's Bazaar Kz * Jasmine Sanders">#}
+        {#</div>#}
+        {#<div class="gallery_picture">#}
+          {#<img src="http://www.ovidiuoltean.com/uploads/galleries/big/portfolio-harpers-bazaar-kz--jasmine-sanders-1115.jpg" alt="Harper's Bazaar Kz * Jasmine Sanders">#}
+        {#</div>#}
+        {#<div class="gallery_picture">#}
+          {#<img src="http://www.ovidiuoltean.com/uploads/galleries/big/portfolio-harpers-bazaar-kz--jasmine-sanders-1112.jpg" alt="Harper's Bazaar Kz * Jasmine Sanders">#}
+        {#</div>#}
+        {#<div class="gallery_picture">#}
+          {#<img src="http://www.ovidiuoltean.com/uploads/galleries/big/portfolio-harpers-bazaar-kz--jasmine-sanders-1113.jpg" alt="Harper's Bazaar Kz * Jasmine Sanders">#}
+        {#</div>#}
+        {#<div class="gallery_picture">#}
+          {#<img src="http://www.ovidiuoltean.com/uploads/galleries/big/portfolio-harpers-bazaar-kz--jasmine-sanders-1116.jpg" alt="Harper's Bazaar Kz * Jasmine Sanders">#}
+        {#</div>#}
+        {#<div class="gallery_picture">#}
+          {#<img src="http://www.ovidiuoltean.com/uploads/galleries/big/portfolio-harpers-bazaar-kz--jasmine-sanders-1111.jpg" alt="Harper's Bazaar Kz * Jasmine Sanders">#}
+        {#</div>#}
+        {#<div class="gallery_picture">#}
+          {#<img src="http://www.ovidiuoltean.com/uploads/galleries/big/portfolio-harpers-bazaar-kz--jasmine-sanders-1110.jpg" alt="Harper's Bazaar Kz * Jasmine Sanders">#}
+        {#</div>#}
+        {#<div class="gallery_picture">#}
+          {#<img src="http://www.ovidiuoltean.com/uploads/galleries/big/portfolio-harpers-bazaar-kz--jasmine-sanders-1117.jpg" alt="Harper's Bazaar Kz * Jasmine Sanders">#}
+        {#</div>#}
+      {#</div>#}
+
+      {% include 'AppBundle:common/post:_resentWorks.html.twig' %}
+    </div>
+  </div>
+{% endblock main %}

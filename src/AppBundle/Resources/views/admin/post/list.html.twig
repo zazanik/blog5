@@ -1,0 +1,43 @@
+{% extends "AppBundle:admin:base.html.twig" %}
+
+{% block main %}
+  <main class="posts-list clearfix">
+    <div class="col col-sm-2 fixed-sidebar">
+      {% include 'AppBundle:admin/components:_sidebar.html.twig' %}
+    </div>
+    <div class="col col-sm-10 main-content">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Title</th>
+          <th scope="col">Created</th>
+          <th scope="col">Updated</th>
+          <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+          <tr>
+            <th scope="row">{{ post.id }}</th>
+            <td>{{ post.title }}</td>
+            <td>{{ post.createdAt|date("d.m.Y H:i") }}</td>
+            <td>{{ post.updatedAt|date("d.m.Y H:i") }}</td>
+            <td>
+              <a href="#">
+                <i class="admin-icon text-warning fa fa-pencil-square" aria-hidden="true"></i>
+              </a>
+              <a href="#">
+                <i class="admin-icon text-danger fa fa-trash" aria-hidden="true"></i>
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      <div class="navigation text-right">
+        {{ knp_pagination_render(posts) }}
+      </div>
+    </div>
+  </main>
+{% endblock main %}

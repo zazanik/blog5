@@ -1,0 +1,34 @@
+.sidebar {
+  padding: 20px 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .nav-link {
+    border-radius: 0;
+  }
+
+  .nav-pills {
+    .nav-link {
+      color: #343a40;
+
+      &.active {
+        color: #fff;
+        background-color: #343a40;
+      }
+    }
+
+    .show > .nav-link {
+      background-color: #343a40;
+    }
+  }
+}
+
+.fixed-sidebar {
+  padding: 0;
+  position: fixed;
+  top: 56px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  border-right: 1px solid #eee;
+}
