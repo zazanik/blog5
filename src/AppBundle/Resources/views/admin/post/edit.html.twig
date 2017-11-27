@@ -1,0 +1,45 @@
+{% extends 'AppBundle:admin:base.html.twig' %}
+
+{% block main %}
+  <main class="post-new clearfix">
+    <div class="col col-sm-2 fixed-sidebar">
+      {% include 'AppBundle:admin/components:_sidebar.html.twig' %}
+    </div>
+    <div class="col col-sm-10 main-content">
+      <h2 class="title">Update post</h2>
+
+      {#{{ form_start(form) }}#}
+      {#{{ form_widget(form) }}#}
+
+      {#<button type="submit" class="btn btn-primary">Save</button>#}
+      {#{{ form_end(form) }}#}
+
+      {{ form_start(form) }}
+      {{ form_row(form.title) }}
+      {{ form_row(form.content) }}
+      {{ form_row(form.thumb) }}
+      {{ form_row(form.createdAt, {
+        'label': 'Created date'
+      }) }}
+      {{ form_row(form.updatedAt, {
+        'label': 'Updated date'
+      }) }}
+      <button type="submit" class="btn btn-primary" formnovalidate>Save</button>
+      {{ form_end(form) }}
+
+
+    </div>
+  </main>
+{% endblock main %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('dist/styles/libs/bootstrap-material-datetimepicker.css') }}">
+{% endblock stylesheets %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script src="{{ asset('dist/js/libs/moment.js') }}"></script>
+  <script src="{{ asset('dist/js/libs/bootstrap-material-datetimepicker.js') }}"></script>
+  <script src="{{ asset('dist/js/admin/pages/post-new.js') }}"></script>
+{% endblock javascripts %}

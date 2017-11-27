@@ -10,6 +10,7 @@
   {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('dist/styles/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/styles/font-awesome.min.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   {% endblock %}
 </head>
 <body>
@@ -48,6 +49,10 @@
   </div>
 {% endblock footer %}
 
-{% block javascripts %}{% endblock %}
+{% block javascripts %}
+  <script src="{{ asset('dist/js/libs/jquery-3.2.1.min.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="{{ asset('dist/js/libs/bootstrap.min.js') }}"></script>
+{% endblock %}
 </body>
 </html>

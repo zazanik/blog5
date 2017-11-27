@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller\Admin\Post;
 
+use AppBundle\Form\PostType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -10,7 +11,7 @@ use AppBundle\Entity\Post;
 class PostController extends Controller
 {
     /**
-     * @Route("/admin", defaults={"page" = 1}, name="admin_homepage", requirements={"page": "[1-9]\d*"})
+     * @Route("/admin", defaults={"page" = 1}, name="admin_post_list", requirements={"page": "[1-9]\d*"})
      *
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -31,5 +32,61 @@ class PostController extends Controller
         return $this->render('AppBundle:admin/post:list.html.twig',
             array('posts' => $posts)
         );
+    }
+
+    /**
+     * @Route("/admin/post/new", name="post_new")
+     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function newAction(Request $request)
+    {
+        $form = $this->createForm(PostType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $post = $form->getData();
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($post);
+            $em->flush();
+
+            $this->addFlash('success', 'Post successfully created');
+
+            return $this->redirectToRoute('admin_post_list');
+        }
+
+        return $this->render('AppBundle:admin/post:new.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/admin/post/{id}/edit", name="post_edit", requirements={"id": "[1-9]\d*"})
+     *
+     * @param Request $request
+     * @param Post $post
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function editAction(Request $request, Post $post)
+    {
+        dump($post);
+        $form = $this->createForm(PostType::class, $post);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $post = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($post);
+            $em->flush();
+            $this->addFlash('success', 'Post updated!');
+            return $this->redirectToRoute('admin_post_list');
+        }
+
+        return $this->render('AppBundle:admin/post:new.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 }
