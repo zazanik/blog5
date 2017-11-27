@@ -72,7 +72,6 @@ class PostController extends Controller
      */
     public function editAction(Request $request, Post $post)
     {
-        dump($post);
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
@@ -88,5 +87,19 @@ class PostController extends Controller
         return $this->render('AppBundle:admin/post:new.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/admin/post/{id}/delete", name="post_delete", requirements={"id":  "[1-9]\d*"})
+     * @param Post $post
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function deleteAction(Post $post)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($post);
+        $em->flush();
+        
+        return $this->redirectToRoute('admin_post_list');
     }
 }

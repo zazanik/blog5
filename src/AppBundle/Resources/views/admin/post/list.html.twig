@@ -35,7 +35,7 @@
               <a href="{{ path('post_edit', { id: post.id }) }}">
                 <i class="admin-icon text-warning fa fa-pencil-square" aria-hidden="true"></i>
               </a>
-              <a href="#">
+              <a href="{{ path('post_delete', { id: post.id }) }}">
                 <i class="admin-icon text-danger fa fa-trash" aria-hidden="true"></i>
               </a>
             </td>
