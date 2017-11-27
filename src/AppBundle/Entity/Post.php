@@ -2,11 +2,8 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use \DateTime;
 
 /**
  * Post
@@ -144,13 +141,9 @@ class Post
         return $this->thumb;
     }
 
-    public function setThumbFile(File $thumb = null)
+    public function setThumbFile($thumb = null)
     {
         $this->thumbFile = $thumb;
-
-        if ($thumb) {
-            $this->updatedAt = new \DateTime('now');
-        }
     }
 
     public function getThumbFile()
@@ -161,13 +154,11 @@ class Post
     /**
      * Set createdAt.
      *
-     * @ORM\PrePersist()
-     *
      * @return Post
      */
-    public function setCreatedAt()
+    public function setCreatedAt($createdAt)
     {
-        $this->createdAt = new DateTime('now');
+        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -185,13 +176,11 @@ class Post
     /**
      * Set updatedAt.
      *
-     * @ORM\PreUpdate()
-     *
      * @return Post
      */
-    public function setUpdatedAt()
+    public function setUpdatedAt($updatedAt)
     {
-        $this->updatedAt = new DateTime('now');
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
@@ -204,22 +193,6 @@ class Post
     public function getUpdatedAt()
     {
         return $this->updatedAt;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * @param mixed $image
-     */
-    public function setImage(Image $image)
-    {
-        $this->image = $image;
     }
 
     public function __toString()

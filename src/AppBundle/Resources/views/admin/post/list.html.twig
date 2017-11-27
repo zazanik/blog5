@@ -6,6 +6,14 @@
       {% include 'AppBundle:admin/components:_sidebar.html.twig' %}
     </div>
     <div class="col col-sm-10 main-content">
+      {% for msg in app.session.flashBag.get('success') %}
+        <div class="alert alert-success">{{ msg }}</div>
+      {% endfor %}
+      <div class="btn-container">
+        <a href="{{ path('post_new') }}" class="btn btn-primary create-btn">Create
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </a>
+      </div>
       <table class="table">
         <thead>
         <tr>
@@ -24,7 +32,7 @@
             <td>{{ post.createdAt|date("d.m.Y H:i") }}</td>
             <td>{{ post.updatedAt|date("d.m.Y H:i") }}</td>
             <td>
-              <a href="#">
+              <a href="{{ path('post_edit', { id: post.id }) }}">
                 <i class="admin-icon text-warning fa fa-pencil-square" aria-hidden="true"></i>
               </a>
               <a href="#">

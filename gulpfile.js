@@ -34,7 +34,7 @@ gulp.task('sass', () => {
  * Watcher for sass, js and twig files
  */
 gulp.task('watch', () => {
-    gulp.watch('./web/src/styles/*/*/*.scss', ['sass']);
+    gulp.watch('./web/src/styles/**/*.scss', ['sass']);
 });
 
 gulp.task('default', ['sass']);

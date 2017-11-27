@@ -38,3 +38,8 @@
 {% endblock header %}
 
 {% block footer %}{% endblock footer %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script src="{{ asset('dist/js/admin/main.js') }}"></script>
+{% endblock javascripts %}
