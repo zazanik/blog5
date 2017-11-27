@@ -1,3 +1,8 @@
 AppBundle\Entity\User:
     user_1:
-      __construct: ['admin@gmail.com', 'admin', '1111', [ROLE_ADMIN]]
+        email: 'admin@gmail.com'
+        username: 'admin'
+        password: '1111'
+        plainPassword: '1111'
+        roles: [ROLE_ADMIN]
+        enabled: true

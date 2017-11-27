@@ -37,5 +37,8 @@ monolog:
         #    type: chromephp
         #    level: info
 
-#swiftmailer:
-#    delivery_addresses: ['me@example.com']
+hautelook_alice:
+    fixtures_path: 'Resources/fixtures/orm'
+#    root_dirs:
+#        - '%kernel.root_dir%'
+#        - '%kernel.project_dir%'
